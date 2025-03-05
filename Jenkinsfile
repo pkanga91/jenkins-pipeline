@@ -16,8 +16,7 @@ pipeline {
     }
     stage('dockerLogin'){
         steps{
-            sh'aws ecr get-login-password --region $AWS_REGION | \
-            docker login --username AWS --password-stdin 864981748692.dkr.ecr.us-east-1.amazonaws.com'
+            sh'aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin 864981748692.dkr.ecr.us-east-1.amazonaws.com'
         }
     }
     stage('dockerImageBuild'){
