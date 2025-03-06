@@ -27,7 +27,7 @@ pipeline {
     }
     stage('dockerImageTag'){
         steps{
-            sh'docker tag jenkins-ci:latest image_ecr_repo:latest'
+            sh'docker tag jenkins-ci:latest $(echo $IMAGE_ECR_REPO | tr '[:upper:]' '[:lower:]'):latest'
             sh'docker tag jenkins-ci imageversion 864981748692.dkr.ecr.us-east-1.amazonaws.com/jenkins-ci:v1.$BUILD_NUMBER'
         }    
     }
